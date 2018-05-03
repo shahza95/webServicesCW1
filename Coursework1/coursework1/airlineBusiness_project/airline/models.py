@@ -1,5 +1,4 @@
 from django.db import models
-from phonenumber_field.modelfields import PhoneNumberField
 import uuid
 
 class Aircraft(models.Model):
@@ -35,7 +34,7 @@ class Passenger(models.Model):
     first_name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     email = models.EmailField()
-    phone_number = PhoneNumberField()
+    phone_number = models.CharField(max_length=30)
 
     def __str__(self):
         return u'%s %s' % (self.first_name, self.surname)
